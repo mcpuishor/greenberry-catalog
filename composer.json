@@ -1,0 +1,25 @@
+{
+    "name": "mcpuishor/greenberry-catalog",
+    "description": "Shared catalog categories/products/variants for greenberry type apps",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability" : "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "mcpuishor\\greenberry-catalog\\GreenberryCatalogServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Robert Tudor",
+            "email": "eu@robert-tudor.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mcpuishor\\GreenberryCatalog\\": "src/"
+        }
+    }
+}
