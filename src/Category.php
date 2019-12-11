@@ -1,10 +1,10 @@
 <?php
 
-namespace Mcpuishor\GreenberryCatalog;
+namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Database\Eloquent\Model,
-	Mcpuishor\GreenberryCatalog\Product,
-    Mcpuishor\GreenberryCatalog\Variant;
+	Mcpuishor\Greenberrycatalog\Product,
+    Mcpuishor\Greenberrycatalog\Variant;
 
 class Category extends Model
 {

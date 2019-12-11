@@ -1,9 +1,9 @@
 <?php
 
-namespace Mcpuishor\GreenberryCatalog;
+namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Database\Eloquent\Model,
-	Mcpuishor\GreenberryCatalog\Product;
+	Mcpuishor\Greenberrycatalog\Product;
 
 class Variant extends Model
 {

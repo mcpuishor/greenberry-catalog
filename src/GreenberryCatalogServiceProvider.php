@@ -1,10 +1,10 @@
 <?php
 
-namespace Mcpuishor\GreenberryCatalog;
+namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Support\ServiceProvider;
 
-class GreenberryCatalogServiceProvider extends ServiceProvider
+class GreenberrycatalogServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
