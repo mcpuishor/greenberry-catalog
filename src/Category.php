@@ -32,4 +32,10 @@ class Category extends Model
     	$this->attributes["name"] = $value ?? "";
     }
 
+    public function setNameAttribute($value)
+    {
+        $this->attributes["name"] = htmlspecialchars_decode($value);
+
+    } 
+
 }
