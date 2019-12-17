@@ -14,6 +14,9 @@ class CreateVariantsTable extends Migration
     public function up()
     {
         Schema::create('variants', function (Blueprint $table) {
+            $table->engine("InnoDB");
+            $table->charset("utf8");
+            $table->collation("utf8_unicode_ci");
             $table->increments('id');
             $table->integer('owid')->unsigned()->unique('unique_owid');
             $table->integer('product_id')->unsigned()->index('product_id');
