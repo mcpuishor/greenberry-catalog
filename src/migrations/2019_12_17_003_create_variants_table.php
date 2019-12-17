@@ -40,8 +40,8 @@ class CreateVariantsTable extends Migration
         {
             $table->foreign('product_id', 'variants_belongto_products')->references('id')
                     ->on('products')
-                    ->onUpdate('CASCADE`')
-                    ->onDelete('CASCADE');
+                    ->onUpdate('CASCADE')
+                    ->onDelete('RESTRICT');
         });
     }
 

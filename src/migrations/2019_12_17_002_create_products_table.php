@@ -32,7 +32,7 @@ class CreateProductsTable extends Migration
         {
             $table->foreign('category_id', 'product_belognsto_category')->references('id')
                     ->on('categories')
-                    ->onUpdate('RESTRICT')
+                    ->onUpdate('CASCADE')
                     ->onDelete('RESTRICT');
         });
     }
