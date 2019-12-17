@@ -7,7 +7,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "mcpuishor\\greenberrycatalog\\GreenberryCatalogServiceProvider"
+                "mcpuishor\\greenberrycatalog\\src\\GreenberryCatalogServiceProvider"
             ]
         }
     },
