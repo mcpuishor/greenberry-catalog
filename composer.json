@@ -4,12 +4,16 @@
     "type": "project",
     "license": "MIT",
     "minimum-stability" : "dev",
+    "version" : "0.0.1",
     "extra": {
         "laravel": {
             "providers": [
                 "Mcpuishor\\Greenberrycatalog\\GreenberrycatalogServiceProvider"
             ]
         }
+    },
+    "require": {
+        "php": "^7.2"
     },
     "authors": [
         {
