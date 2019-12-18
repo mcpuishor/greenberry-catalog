@@ -29,12 +29,7 @@ class Category extends Model
 
     public function setNameAttribute($value)
     {
-    	$this->attributes["name"] = $value ?? "";
-    }
-
-    public function setNameAttribute($value)
-    {
-        $this->attributes["name"] = htmlspecialchars_decode($value);
+        $this->attributes["name"] = htmlspecialchars_decode($value) ?? '';
 
     } 
 
