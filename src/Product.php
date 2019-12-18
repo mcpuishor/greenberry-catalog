@@ -3,11 +3,17 @@
 namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Database\Eloquent\Model,
-	Mcpuishor\Greenberrycatalog\Variant,
+    Illuminate\Database\Eloquent\SoftDeletes;
+
+use	Mcpuishor\Greenberrycatalog\Variant,
 	Mcpuishor\Greenberrycatalog\Category;
+
+
 
 class Product extends Model
 {
+    use SoftDeletes;
+
     protected $guarded =["id"];
     protected $touches = ["category"];
 
