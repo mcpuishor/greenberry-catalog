@@ -1,5 +1,5 @@
 <?php
-namespace Mcpuishor\Greenberrycatalog\Controllers;
+namespace Mcpuishor\Greenberrycatalog\controllers;
 
 use Illuminate\Http\Request;
 use \Mcpuishor\Greenberrycatalog\Product;

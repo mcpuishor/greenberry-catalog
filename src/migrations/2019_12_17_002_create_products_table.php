@@ -15,25 +15,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function(Blueprint $table)
         {
-            $table->engine = "InnoDB";
-            $table->charset = "utf8";
-            $table->collation = "utf8_unicode_ci";
-            $table->increments('id');
-            $table->integer('owid')->unsigned()->unique('unique_owid');
+            $table->id();
+            $table->unsignedInteger('owid')->unique('unique_owid');
             $table->string('code', 50);
-            $table->integer('category_id')->unsigned()->index('category_id');
             $table->string('description', 255)->nullable();
             $table->boolean('website')->nullable();
+            $table->foreignId('category_id')->constrained("categories")->nullable();
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::table('products', function(Blueprint $table)
-        {
-            $table->foreign('category_id', 'product_belognsto_category')->references('id')
-                    ->on('categories')
-                    ->onUpdate('CASCADE')
-                    ->onDelete('RESTRICT');
         });
     }
 
@@ -48,7 +37,7 @@ class CreateProductsTable extends Migration
 
         Schema::table('products', function(Blueprint $table)
         {
-            $table->dropForeign('product_belognsto_category');
+            $table->dropForeign('product_belongsto_category');
         });
         
         Schema::drop('products');

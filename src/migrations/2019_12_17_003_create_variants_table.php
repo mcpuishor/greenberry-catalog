@@ -14,35 +14,24 @@ class CreateVariantsTable extends Migration
     public function up()
     {
         Schema::create('variants', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->charset = "utf8";
-            $table->collation = "utf8_unicode_ci";
-            $table->increments('id');
-            $table->integer('owid')->unsigned()->unique('unique_owid');
-            $table->integer('product_id')->unsigned()->index('product_id');
+            $table->id();
+            $table->unsignedInteger('owid')->unique('unique_owid');
+            $table->foreignId('product_id')->constrained("products");
             $table->string('code', 50);
-            $table->string('description', 255)->nullable();
-            $table->float('rsp', 10, 2)->unsigned();
+            $table->string('description')->nullable();
+            $table->unsignedInteger('rsp')->nullable();
             $table->string('abbreviation')->nullable();
-            $table->integer('freestock')->unsigned()->nullable();
-            $table->float('special_offer', 10, 0)->unsigned()->nullable();
-            $table->float('weight', 10, 0)->unsigned()->nullable();
-            $table->float('vat_rate', 10, 0)->nullable();
+            $table->unsignedInteger('freestock')->nullable();
+            $table->unsignedInteger('special_offer')->nullable();
+            $table->unsignedInteger('weight')->nullable();
+            $table->float('vat_rate')->nullable();
             $table->string('vat_code', 10)->nullable();
-            $table->boolean('website')->nullable()->default(1);
-            $table->boolean('trade')->nullable()->default(1);
+            $table->boolean('website')->nullable()->default(true);
+            $table->boolean('trade')->nullable()->default(true);
             $table->boolean('discontinued')->nullable();
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::table('variants', function(Blueprint $table)
-        {
-            $table->foreign('product_id', 'variants_belongto_products')->references('id')
-                    ->on('products')
-                    ->onUpdate('CASCADE')
-                    ->onDelete('RESTRICT');
-        });
+        });      
     }
 
     /**

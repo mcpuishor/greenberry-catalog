@@ -14,12 +14,10 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->charset = "utf8";
-            $table->collation = "utf8_unicode_ci";
-            $table->increments('id');
-            $table->integer('owid')->unsigned()->unique('unique_owid');
-            $table->string('name',255);
+            $table->id();
+            $table->unsignedInteger('owid')->unique('unique_owid');
+            $table->string('name');
+            $table->foreignId("parent_id")->constrained("categories");
             $table->timestamps();
             $table->softDeletes();
         });
