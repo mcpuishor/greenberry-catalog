@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedInteger('owid')->unique('unique_owid');
             $table->string('code', 50);
-            $table->string('description', 255)->nullable();
+             $table->string('name', 255);
+            $table->longText('description')->nullable();
             $table->boolean('website')->nullable();
             $table->foreignId('category_id')->constrained("categories")->nullable();
             $table->timestamps();

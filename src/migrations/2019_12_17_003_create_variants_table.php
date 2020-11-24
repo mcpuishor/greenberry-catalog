@@ -19,7 +19,7 @@ class CreateVariantsTable extends Migration
             $table->foreignId('product_id')->constrained("products");
             $table->string('code', 50);
             $table->string('description')->nullable();
-            $table->unsignedInteger('rsp')->nullable();
+            $table->decimal('rsp', 9, 2)->nullable();
             $table->string('abbreviation')->nullable();
             $table->unsignedInteger('freestock')->nullable();
             $table->unsignedInteger('special_offer')->nullable();
