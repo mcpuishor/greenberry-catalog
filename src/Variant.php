@@ -82,6 +82,11 @@ class Variant extends Model
     	return $query->where('freestock', ">", 0);
     }
 
+    public function scopeActive($query)
+    {
+    	return $query->where("website", ">" , 0);
+    }
+
     public function scopeFuzzySearch($query, $field, $needle, $tradeable=1, $stocked=1)
     {
     	$query = $query->where($field, "like", "%".request("q")."%");

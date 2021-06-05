@@ -39,4 +39,9 @@ class Product extends Model
         $this->attributes["owid"] = $value ?? 0;
     }
 
+
+    public function scopeActive($query)
+    {
+        return $query->where("website", 1);
+    }
 }
