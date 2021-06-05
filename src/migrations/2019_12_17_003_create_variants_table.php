@@ -22,12 +22,12 @@ class CreateVariantsTable extends Migration
             $table->integer('product_id')->unsigned()->index('product_id');
             $table->string('code', 50);
             $table->string('description', 255)->nullable();
-            $table->float('rsp', 10, 2)->unsigned();
+            $table->decimal('rsp', 10, 2)->unsigned();
             $table->string('abbreviation')->nullable();
             $table->integer('freestock')->unsigned()->nullable();
-            $table->float('special_offer', 10, 0)->unsigned()->nullable();
-            $table->float('weight', 10, 0)->unsigned()->nullable();
-            $table->float('vat_rate', 10, 0)->nullable();
+            $table->decimal('special_offer', 10, 2)->unsigned()->nullable();
+            $table->decimal('weight', 10, 2)->unsigned()->nullable();
+            $table->decimal('vat_rate', 10, 0)->nullable();
             $table->string('vat_code', 10)->nullable();
             $table->boolean('website')->nullable()->default(1);
             $table->boolean('trade')->nullable()->default(1);

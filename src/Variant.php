@@ -66,7 +66,7 @@ class Variant extends Model
 
 	public function setSpecialOfferAttribute($value)
 	{
-		 $this->attributes["special_offer"] = intval($value);
+		 $this->attributes["special_offer"] = round($value, 2);
 	}
 
 	/* accessors for display */
