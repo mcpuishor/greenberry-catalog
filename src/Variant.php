@@ -16,7 +16,7 @@ class Variant extends Model
 	protected $casts = [
 		"rsp" => "float",
 		"special_offer" => "float",
-
+		"weight" => "int",
 	];
 
 	public function product()
@@ -57,11 +57,6 @@ class Variant extends Model
 	public function setRspAttribute($value)
 	{
 		 $this->attributes["rsp"] = round($value, 2);
-	}
-
-	public function setWeightAttribute($value)
-	{
-		 $this->attributes["weight"] = round($value, 2);
 	}
 
 	public function setVatRateAttribute($value)
