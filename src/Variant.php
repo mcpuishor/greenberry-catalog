@@ -13,6 +13,11 @@ class Variant extends Model
 	];
 
 	protected $touches = ["product"];
+	protected $casts = [
+		"rsp" => "float",
+		"special_offer" => "float",
+
+	];
 
 	public function product()
 	{
