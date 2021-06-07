@@ -76,6 +76,10 @@ class Variant extends Model
 		return number_format($value,2);
 	}
 
+	public function getSpecialOfferAttribute($value)
+	{
+		return number_format($value,2);
+	}
 
     public function scopeStocked($query)
     {
