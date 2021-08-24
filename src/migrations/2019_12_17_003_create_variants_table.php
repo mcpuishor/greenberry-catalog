@@ -14,12 +14,9 @@ class CreateVariantsTable extends Migration
     public function up()
     {
         Schema::create('variants', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->charset = "utf8";
-            $table->collation = "utf8_unicode_ci";
-            $table->increments('id');
+            $table->id();
             $table->integer('owid')->unsigned()->unique('unique_owid');
-            $table->integer('product_id')->unsigned()->index('product_id');
+            $table->foreignId("product_id")->constrained();
             $table->string('code', 50);
             $table->string('description', 255)->nullable();
             $table->decimal('rsp', 10, 2)->unsigned();
@@ -35,14 +32,6 @@ class CreateVariantsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
-        Schema::table('variants', function(Blueprint $table)
-        {
-            $table->foreign('product_id', 'variants_belongto_products')->references('id')
-                    ->on('products')
-                    ->onUpdate('CASCADE')
-                    ->onDelete('RESTRICT');
-        });
     }
 
     /**
@@ -52,11 +41,6 @@ class CreateVariantsTable extends Migration
      */
     public function down()
     {
-        Schema::table('variants', function(Blueprint $table)
-        {
-            $table->dropForeign('variants_belongto_products');
-        });
-        
         Schema::dropIfExists('variants');
     }
 }

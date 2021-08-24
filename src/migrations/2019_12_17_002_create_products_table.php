@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
              $table->string('name', 255);
             $table->longText('description')->nullable();
             $table->boolean('website')->nullable();
-            $table->foreignId('category_id')->constrained("categories")->nullable();
+            $table->foreignId('category_id')->constrained()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,13 +34,7 @@ class CreateProductsTable extends Migration
      * @return void
      */
     public function down()
-    {
-
-        Schema::table('products', function(Blueprint $table)
-        {
-            $table->dropForeign('product_belongsto_category');
-        });
-        
+    {   
         Schema::drop('products');
     }
 }
