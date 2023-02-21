@@ -3,6 +3,9 @@
 namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Database\Eloquent\Model,
+	Illuminate\Database\Eloquent\Relations\HasMany,
+	Illuminate\Database\Eloquent\Relations\HasManyThrough,
+	Illuminate\Database\Eloquent\Relations\BelongsTo,
 	Mcpuishor\Greenberrycatalog\Product;
 
 class Variant extends Model
@@ -19,7 +22,7 @@ class Variant extends Model
 		"weight" => "int",
 	];
 
-	public function product()
+	public function product() : BelongsTo
 	{
 		return $this->belongsTo(Product::class);
 	}

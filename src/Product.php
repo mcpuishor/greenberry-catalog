@@ -3,7 +3,10 @@
 namespace Mcpuishor\Greenberrycatalog;
 
 use Illuminate\Database\Eloquent\Model,
-    Illuminate\Database\Eloquent\SoftDeletes;
+    Illuminate\Database\Eloquent\SoftDeletes,
+	Illuminate\Database\Eloquent\Relations\HasMany,
+	Illuminate\Database\Eloquent\Relations\HasManyThrough,
+	Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use	Mcpuishor\Greenberrycatalog\Variant,
 	Mcpuishor\Greenberrycatalog\Category;
@@ -17,12 +20,12 @@ class Product extends Model
     protected $guarded =["id"];
     protected $touches = ["category"];
 
-    public function variants()
+    public function variants() : HasMany
     {
     	return $this->hasMany(Variant::class);
     }
 
-    public function category()
+    public function category() : BelongsTo
     {
     	return $this->belongsTo(Category::class);
     }
